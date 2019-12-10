@@ -23,7 +23,19 @@ public class StringUtils {
 
     }
 
-    public static Boolean isIsogram(String str) { return null; }
+    public static Boolean isIsogram(String str) {
+        char[] chars = str.toCharArray();
+        for(int i = 0;i<str.length();i++){
+            int count = 0;
+            char check = chars[i];
+            for(char other : chars) {
+                if(check == other) count++;
+            }
+            if(count > 1) return false;
+        }
+
+        return true;
+    }
 
     public static Boolean hasDuplicateConsecutiveCharacters(String str) {
         for(int i =0; i< str.length()-1;i++){
@@ -37,9 +49,19 @@ public class StringUtils {
     }
 
     public static String removeConsecutiveDuplicateCharacters(String str) {
+        int count = 0;
+
+        for(int i =0; i< str.length()-1;i++){
+
+            if (str.charAt(i) != str.charAt(i+1)){
+                 count++;
+            }
+
+        }
 
 
-        return null;
+        return String.valueOf(count);
+
     }
 
     public static String invertCasing(String str) {
